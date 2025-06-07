@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+//Sieve of Eratosthenes
 int main(){
   int n;
   printf("Limit: ");
