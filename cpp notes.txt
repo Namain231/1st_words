@@ -1,0 +1,117 @@
+cpp notes
+
+auto keyword => lets compiler identify which type of datatype is the variable by assignment of value
+
+Exg: auto x = 5.6 // float
+
+Strings are objects!
+so they have functions like .append(), .length(), .size()
+Exg :
+	string firstName = "John ";
+	string lastName = "Doe";
+	string fullName = firstName.append(lastName);
+	cout << fullName;
+
+strings are char arrays so each char can be accessed and also changed via its index
+Exg : 
+	string myString = "Hello";
+	cout << myString[0];
+	// Outputs H
+	myString[0] = 'J';
+	cout << myString ; 
+	// outputs Jello
+
+The .at(i) function also does the same thing as above:
+	string myString = "Hi";
+	myString.at(0) = 'Y';
+	cout << myString;
+	//outputs Yi
+cin only takes in a single word as input - every whitespace or newline is terminating.
+Use getline() for multiple words as getline(cin, string)
+
+<cmath> has math funcs. in cpp
+
+for-each loop : for loop that loops through all elements in the range of an array or such structure (introduced in c++ 11)
+Exg: 
+	int myNumbers[5] = {10, 20, 30, 40, 50};
+	for (int i : myNumbers) {
+  		cout << i << "\n";
+	}
+Exg:
+	string word = "Hello";
+	for (char c : word) {
+	  cout << c << "\n";
+	}
+
+break keyword used to jump out of switch or a loop.
+The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+
+The size of an array in C++ is fixed, meaning you cannot add or remove elements after it is created. For operations that require adding and removing array elements, C++ provides vectors, which are resizable arrays. The size of a vector is dynamic, meaning it can grow and shrink as needed. Vectors are found in the <vector> library, and they come with many useful functions to add, remove and modify elements.
+
+structs can be used for creating a specific datatype of multiple datatypes - each member within it known as its 'member' 
+
+enum holds a group of constants - it gives a variable name to a constant and can be used in cases of defining constants that will be used as parameters or modes - modes that won't change.
+
+reference variable is an alias to an existing variable -  both refer to the same memory location and changing one affects the other.
+Exg:
+	string food = "Pizza";  // food variable
+	string &meal = food;    // reference to food
+	cout << food << endl ;
+	cout << meal ;
+// Both output Pizza.
+
+The memory address of a variable is in hexadecimal form (0x..).
+
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout); 
+// used to read input from files - add to the beginning of the code and then continue using standard streams.
+
+A pointer is a variable that stores the memory address as its value.
+
+
+The new keyword lets you manage memory yourself by creating space for the variable manually (via command explicitly).
+Exg : 	
+	int* ptr = new int;
+	*ptr = 35;
+	cout << *ptr;
+	delete ptr;
+// assigns memory space to new int variable and gives it to store 35; after output the //variable is deleted/freed. 
+
+new[] and delete[] can be used to generate dynamic arrays.
+Exg:
+	int main() {
+  		int numGuests;
+  		cout << "How many guests? ";
+  		cin >> numGuests;
+
+	// Check for invalid input
+	if (numGuests <= 0) {
+    		cout << "Number of guests must be at least 1.\n";
+    		return 0;
+  	}
+
+  	// Create memory space for x guests (an array of strings)
+  	string* guests = new string[numGuests];
+
+  	// Enter guest names
+  	for (int i = 0; i < numGuests; i++) {
+    		cout << "Enter name for guest " << (i + 1) << ": ";
+    		cin >> guests[i];
+  	}
+//string* creates an array memoryspace of required space based on user input
+
+A namespace is a way to group related code together under a name. It helps you avoid naming conflicts when your code grows or when you use code from multiple sources.
+
+Think of a namespace like a folder: you can have a variable named x in two different folders, and they won't clash.
+Exg:
+	namespace MyNamespace {
+  		int x = 42;
+	}
+	using namespace Mynamespace;
+	int main() {
+  		cout << x;
+  		return 0;
+	}
+
+In large programs, using using namespace can cause name conflicts. It's often better to use the full name like MyNamespace::x instead.
+
