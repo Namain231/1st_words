@@ -3,14 +3,14 @@
 #include <stdexcept>
 using namespace std;
 vector<int> cake_calculator(int flour, int sugar) {
-   int cake_cnt = 0;
-   while(flour >= 100 || sugar >= 50){
-    cake_cnt += 1;
-    flour -= 100;
-    sugar -= 50;
+   int cake_cnt = 0; //initial cake count
+   while(flour >= 100 || sugar >= 50){// as long as the requirements are met
+    cake_cnt += 1;//every time good are used to make a cake, increment cake count
+    flour -= 100;// decrease flour by 100 per cake
+    sugar -= 50;// decrease sugar by 50 per cake
    }
 vector<int> res = {cake_cnt, flour, sugar};
-return res;
+return res; // return cake count, remaining flour and sugar
 }
 
 
